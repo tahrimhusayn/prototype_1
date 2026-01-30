@@ -1,0 +1,226 @@
+/* ------------------ Global Styles ------------------ */
+/* Import Professional Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary: #002147;
+    --accent: #d4a017;
+    --text-light: #586069;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* ------------------ Navbar (Header) ------------------ */
+/* Transparent, Sticky, Original Height */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* logo left, nav right */
+    align-items: center;
+    padding: 1.2rem 5%; /* reduced padding from 8% to 5% */
+    background: rgba(0, 33, 71, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: auto; /* original height */
+    box-sizing: border-box; /* important for padding */
+}
+
+/* Logo */
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span { 
+    color: var(--accent); 
+}
+
+.nav-logo {
+    height: 40px; /* original size */
+    vertical-align: middle;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 20px; /* slightly smaller gap */
+    list-style: none;
+    align-items: center;
+    flex-wrap: wrap; /* allows wrapping if screen is small */
+}
+
+/* Nav Link Hover */
+.nav-links a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Sign In Button */
+.btn-login {
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    background: #e6af1a;
+    transform: translateY(-2px);
+}
+
+/* Responsive Navbar for Tablet/Mobile */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 1rem 3%; /* reduce padding on smaller screens */
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+}
+
+/* ------------------ Hero / CTA Buttons ------------------ */
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background: #e6af1a;
+}
+
+/* ------------------ Footer ------------------ */
+.main-footer {
+    background: #001529;
+    color: #ffffff;
+    padding: 60px 8% 20px;
+    margin-top: 0;
+    border-top: 4px solid #d4a017;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+    filter: brightness(1.2);
+}
+
+.footer-col h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer-col h4 {
+    color: #d4a017;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #d4a017;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom p {
+    margin-bottom: 5px;
+}
+
+/* Mobile Footer */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

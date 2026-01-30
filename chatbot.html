@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot | PUGC SmartBot</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Dashboard/Chatbot Styles -->
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body class="protected-page">
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-robot"></i>
+            <span>PUGC SmartBot</span>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="index.html">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="dashboard.html">
+                <i class="fas fa-user"></i> Dashboard
+            </a>
+            <a href="chatbot.html" class="active">
+                <i class="fas fa-comments"></i> Chatbot
+            </a>
+            <a href="login.html" class="logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+            <h1>Chatbot</h1>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Student</span>
+            </div>
+        </header>
+
+        <!-- Chat Section -->
+        <section class="content">
+
+            <div class="card chatbot-card">
+                <h2>Ask PUGC SmartBot</h2>
+                <p>Type your questions about courses, admissions, events, and more.</p>
+                <div id="chat-window" class="chat-window"></div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Type your message..." />
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="JS/auth-validation.js"></script>
+<script src="JS/chatbot.js"></script>
+
+</body>
+</html>

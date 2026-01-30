@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | PUGC SmartBot</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-robot"></i>
+            <span>PUGC SmartBot</span>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="index.html">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="#" class="active">
+                <i class="fas fa-user"></i> Dashboard
+            </a>
+            <a href="chatbot.html">
+                <i class="fas fa-comments"></i> Chatbot
+            </a>
+            <a href="login.html" class="logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+            <h1>Dashboard</h1>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Student</span>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <section class="content">
+
+            <!-- Welcome Card -->
+            <div class="card welcome-card">
+                <h2>Welcome to PUGC SmartBot 👋</h2>
+                <p>
+                    Your AI-powered academic assistant is ready to help you
+                    with queries, guidance, and university-related information.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="card stat-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>AI Chats</h3>
+                    <p>Unlimited</p>
+                </div>
+
+                <div class="card stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Availability</h3>
+                    <p>24/7</p>
+                </div>
+
+                <div class="card stat-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security</h3>
+                    <p>Protected</p>
+                </div>
+            </div>
+
+            <!-- Chatbot Entry -->
+            <div class="card chatbot-card">
+                <h2>Start a Conversation</h2>
+                <p>
+                    Ask questions about admissions, departments,
+                    schedules, or general academic guidance.
+                </p>
+                <a href="chatbot.html" class="chatbot-btn">
+                    <i class="fas fa-robot"></i> Open Chatbot
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

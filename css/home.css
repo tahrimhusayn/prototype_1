@@ -1,0 +1,169 @@
+/* ------------------ Hero Section ------------------ */
+.hero {
+    min-height: 68vh; /* Make hero cover full viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center;
+    padding: 120px 10%; /* Keep original padding */
+    background: linear-gradient(135deg, #002147 0%, #003366 100%);
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background pattern effect */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+    z-index: 0;
+}
+
+/* Hero Heading */
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 40px; /* reduced margin so CTA button is closer */
+    letter-spacing: -1px;
+    z-index: 1; /* above background pattern */
+}
+
+/* Hero Paragraph */
+.hero p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    z-index: 1;
+}
+
+/* CTA Button */
+.cta-btn {
+    display: inline-flex; /* allow proper hover effects */
+    align-items: center;
+    gap: 8px; /* for icon if added */
+    background: var(--accent);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease; /* fixed: add 'all' so hover works */
+    z-index: 1;
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background: #e6af1a;
+    cursor: pointer; /* pointer on hover */
+}
+
+/* ------------------ Features Section ------------------ */
+.features {
+    padding: 80px 10%;
+    background: #fdfdfd;
+}
+
+/* Section Heading */
+.features-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.features-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.features-header p {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: var(--white);
+    padding: 40px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card Hover Effect */
+.feature-card::after {
+    content: "";
+    position: absolute;
+    left: 0; width: 0; height: 4px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+    bottom: 0;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.feature-card:hover::after {
+    width: 100%;
+}
+
+/* Card Icon */
+.feature-card i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+/* Card Heading */
+.feature-card h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* Card Text */
+.feature-card p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ------------------ Mobile Adjustments ------------------ */
+@media (max-width: 600px) {
+    .hero {
+        padding: 80px 5%;
+        min-height: 90vh; /* keep it tall on small screens */
+    }
+
+    .features {
+        padding: 40px 5%;
+    }
+
+    .features-grid {
+        gap: 30px;
+    }
+
+    .feature-card {
+        padding: 30px 15px;
+    }
+}

@@ -1,0 +1,198 @@
+/* ------------------ Layout ------------------ */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f6fa;
+}
+
+/* ------------------ Sidebar ------------------ */
+.sidebar {
+    width: 260px;
+    background: #001529;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #00101f;
+}
+
+.sidebar-header i {
+    color: var(--accent);
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.sidebar-menu a {
+    padding: 14px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+    background: rgba(255,255,255,0.1);
+}
+
+.sidebar-menu a.logout {
+    margin-top: auto;
+    color: #ffb3b3;
+}
+
+/* ------------------ Main Content ------------------ */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------------ Topbar ------------------ */
+.topbar {
+    background: #ffffff;
+    padding: 18px 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h1 {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+}
+
+/* ------------------ Content ------------------ */
+.content {
+    padding: 30px;
+}
+
+/* Cards */
+/* Cards */
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Golden line (hidden by default) */
+.card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+/* Welcome */
+.welcome-card h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-card i {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-weight: 600;
+}
+
+/* Chatbot Card */
+.chatbot-card {
+    text-align: center;
+}
+
+.chatbot-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: var(--accent);
+    color: #ffffff;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.chatbot-btn i {
+    margin-right: 8px;
+}
+
+.chatbot-btn:hover {
+    background: #e6af1a;
+    transform: translateY(-2px);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.card:hover::before {
+    transform: scaleY(1);
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 900px) {
+    .sidebar {
+        display: none; /* later we’ll add toggle */
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
