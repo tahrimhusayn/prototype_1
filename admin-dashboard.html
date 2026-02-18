@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | PUGC SmartBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global + Dashboard CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body class="protected-page admin-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-robot"></i>
+            <span>PUGC SmartBot</span>
+        </div>
+
+        <nav class="sidebar-menu">
+            <div class="menu-links">
+                <a href="index.html">
+                <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="active" data-section="overview">
+                    <i class="fas fa-chart-pie"></i> Overview
+                </a>
+                <a href="#" data-section="users">
+                    <i class="fas fa-users"></i> Users
+                </a>
+                <a href="#" data-section="subscriptions">
+                    <i class="fas fa-credit-card"></i> Subscriptions
+                </a>
+                <a href="#" data-section="faqs">
+                    <i class="fas fa-question-circle"></i> FAQs
+                </a>
+                <a href="#" data-section="events">
+                    <i class="fas fa-calendar-alt"></i> Events
+                </a>
+                <a href="#" data-section="feedback">
+                    <i class="fas fa-star"></i> Feedback
+                </a>
+            </div>
+
+            <a href="login.html" class="logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <h1>Admin Dashboard</h1>
+            <div class="user-info">
+                <i class="fas fa-user-shield"></i>
+                <span>Admin</span>
+            </div>
+        </header>
+
+        <section class="content">
+
+            <!-- OVERVIEW -->
+            <div id="overview" class="section active">
+                <div class="card welcome-card">
+                    <h2>Welcome Admin 👋</h2>
+                    <p>Manage users, subscriptions, FAQs, events and feedback.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="card stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Total Users</h3>
+                        <p id="statUsers">0</p>
+                    </div>
+                    <div class="card stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Feedback</h3>
+                        <p id="statFeedback">0</p>
+                    </div>
+                    <div class="card stat-card">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Subscriptions</h3>
+                        <p id="statSubs">0</p>
+                    </div>
+                </div>
+
+                <!-- ================= ADMIN ACTIONS BELOW STATS ================= -->
+                <div class="admin-actions">
+
+                    <div class="card action-card" data-action="faqs">
+                        <i class="fas fa-edit"></i>
+                        <h3>Manage FAQs</h3>
+                        <p>Add or update chatbot FAQs.</p>
+                        <button>Open</button>
+                    </div>
+
+                    <div class="card action-card" data-action="events">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Manage Events</h3>
+                        <p>Add exam dates and announcements.</p>
+                        <button>Open</button>
+                    </div>
+
+                    <div class="card action-card" data-action="feedback">
+                        <i class="fas fa-star"></i>
+                        <h3>User Feedback</h3>
+                        <p>View chatbot ratings & feedback.</p>
+                        <button>Open</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- USERS -->
+            <div id="users" class="section"></div>
+
+            <!-- SUBSCRIPTIONS -->
+            <div id="subscriptions" class="section"></div>
+
+            <!-- FAQS -->
+            <div id="faqs" class="section"></div>
+
+            <!-- EVENTS -->
+            <div id="events" class="section"></div>
+
+            <!-- FEEDBACK -->
+            <div id="feedback" class="section"></div>
+
+        </section>
+    </main>
+</div>
+
+<script src="js/admin-dashboard.js"></script>
+</body>
+</html>

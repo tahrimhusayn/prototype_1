@@ -1,0 +1,188 @@
+/* Checkout Wrapper */
+.checkout-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f6fa;
+  padding: 20px;
+}
+
+/* Back Button */
+.back-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-btn:hover {
+  color: #e6af1a;
+}
+
+/* Checkout Card */
+.checkout-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 14px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.checkout-card h2 {
+  font-size: 1.8rem;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.checkout-card .checkout-intro {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Form */
+.checkout-form {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 90%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #f9f9f9;
+}
+
+/* Features List */
+.features-list {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.feature-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.feature-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.feature-item span {
+  font-weight: 600;
+  color: #e6af1a; /* golden color for price */
+}
+
+.feature-item i.delete-feature {
+  color: #ff4d4f;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 1.1rem;
+}
+
+.feature-item i.delete-feature:hover {
+  color: #ff0000;
+}
+
+/* Total Price */
+.total-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 20px 0;
+  color: #222;
+}
+
+/* Confirm Payment Button */
+.checkout-btn {
+  display: inline-block;
+  background: #e6af1a;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn i {
+  margin-right: 8px;
+}
+
+.checkout-btn:hover {
+  background: #d49e18;
+  transform: translateY(-2px);
+}
+
+/* Payment Options */
+.payment-group {
+    display: flex;
+    flex-direction: column; /* stack label and options vertically */
+    align-items: flex-start; /* align everything to the left */
+    margin-top: 20px;
+}
+
+.payment-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: left; /* ensures label text is left-aligned */
+}
+
+.payment-options {
+    display: flex;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.payment-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.payment-options input[type="radio"] {
+    accent-color: #f0b429; /* golden color */
+}
+
+
+
+/* Responsive */
+@media(max-width: 480px) {
+  .checkout-card {
+    padding: 30px 20px;
+  }
+
+  .checkout-btn {
+    width: 100%;
+  }
+}

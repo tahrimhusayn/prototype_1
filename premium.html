@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium | PUGC SmartBot</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Dashboard Styles (for sidebar) -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Premium Styles -->
+    <link rel="stylesheet" href="css/premium.css">
+</head>
+<body class="protected-page student-page">
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-robot"></i>
+            <span>PUGC SmartBot</span>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="dashboard.html"><i class="fas fa-user"></i>Student Dashboard</a>
+            <a href="premium.html" class="active"><i class="fas fa-crown"></i>Premium</a>
+            <a href="chatbot.html"><i class="fas fa-comments"></i> Chatbot</a>
+            <a href="login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar -->
+        <header class="topbar">
+            <h1>Premium Features</h1>
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Student</span>
+            </div>
+        </header>
+
+        <!-- Premium Content -->
+        <section class="content full-screen-content">
+
+            <!-- Intro Card -->
+            <div class="card premium-intro">
+                <h2><i class="fas fa-gift golden-icon"></i> Unlock Premium</h2>
+                <p>Select the features you want and confirm your subscription.</p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="features-grid">
+
+                <div class="card feature-card">
+                    <i class="fas fa-question-circle golden-icon"></i>
+                    <h3>FAQ Auto Suggestions</h3>
+                    <p>Get instant answers to common queries.</p>
+                    <p class="price">Price: $5</p>
+                    <label>
+                        <input type="checkbox" class="feature-checkbox" value="FAQ Auto Suggestions" data-price="5"> Select Feature
+                    </label>
+                </div>
+
+                <div class="card feature-card">
+                    <i class="fas fa-history golden-icon"></i>
+                    <h3>Chat History</h3>
+                    <p>Access previous conversations anytime.</p>
+                    <p class="price">Price: $3</p>
+                    <label>
+                        <input type="checkbox" class="feature-checkbox" value="Chat History" data-price="3"> Select Feature
+                    </label>
+                </div>
+
+                <div class="card feature-card">
+                    <i class="fas fa-calendar-check golden-icon"></i>
+                    <h3>Event Reminders</h3>
+                    <p>Stay updated with events, deadlines, and exams.</p>
+                    <p class="price">Price: $4</p>
+                    <label>
+                        <input type="checkbox" class="feature-checkbox" value="Event Reminders" data-price="4"> Select Feature
+                    </label>
+                </div>
+
+                <div class="card feature-card">
+                    <i class="fas fa-star golden-icon"></i>
+                    <h3>Feedback & Ratings</h3>
+                    <p>Provide feedback to improve AI responses.</p>
+                    <p class="price">Price: $2</p>
+                    <label>
+                        <input type="checkbox" class="feature-checkbox" value="Feedback & Ratings" data-price="2"> Select Feature
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- Confirm Subscription -->
+            <div class="subscribe-section">
+                <button id="confirm-subscription" class="subscribe-btn">
+                    <i class="fas fa-check-circle"></i> Confirm Subscription
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/auth-validation.js"></script>
+<script src="js/premium.js"></script>
+</body>
+</html>

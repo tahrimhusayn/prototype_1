@@ -1,0 +1,100 @@
+/* Premium Page Styles */
+.premium-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.premium-intro h2 {
+    font-size: 1.8rem;
+}
+
+.premium-intro p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.feature-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #e6af1a;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    margin: 5px 0;
+}
+
+.feature-card .price {
+    font-weight: 600;
+}
+
+.feature-card label {
+    margin-top: 10px;
+}
+
+/* Subscribe Button */
+.subscribe-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.subscribe-btn {
+    display: inline-block;
+    background: #e6af1a;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.subscribe-btn i {
+    margin-right: 8px;
+}
+
+.subscribe-btn:hover {
+    background: #d49e18;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subscribe-btn {
+        width: 70%;
+    }
+}

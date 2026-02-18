@@ -25,7 +25,17 @@ function isValidEmail(email) {
 }
 
 // ==============================
-// Signup Validation
+// GLOBAL AUTH STATE
+// ==============================
+function isUserLoggedIn() {
+    return (
+        sessionStorage.getItem("isLoggedIn") === "true" ||
+        localStorage.getItem("isLoggedIn") === "true"
+    );
+}
+
+// ==============================
+// SIGNUP VALIDATION
 // ==============================
 const signupForm = document.querySelector(".signup-form");
 
@@ -40,55 +50,53 @@ if (signupForm) {
 
         let isValid = true;
 
-        // Name
-        if (name.value.trim().length < 3) {
-            showError(name, "Name must be at least 3 characters");
-            isValid = false;
-        } else {
-            clearError(name);
+        if (name.value.trim().length < 3) { showError(name, "Name must be at least 3 characters"); isValid = false; } else clearError(name);
+        if (!isValidEmail(email.value.trim())) { showError(email, "Enter a valid email address"); isValid = false; } else clearError(email);
+        if (password.value.length < 6) { showError(password, "Password must be at least 6 characters"); isValid = false; } else clearError(password);
+        if (password.value !== confirmPassword.value) { showError(confirmPassword, "Passwords do not match"); isValid = false; } else clearError(confirmPassword);
+
+        if (!isValid) return;
+
+        // Determine role (admin if email contains "admin")
+        const role = email.value.toLowerCase().includes("admin") ? "admin" : "student";
+
+        // AUTH STATE
+        sessionStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userRole", role);
+        localStorage.setItem("userEmail", email.value.trim());
+
+        // SAVE CURRENT USER for checkout & chatbot
+        const user = {
+            name: name.value.trim(),
+            email: email.value.trim(),
+            features: [], // initially empty
+            role: role
+        };
+        localStorage.setItem("currentUser", JSON.stringify(user));
+
+        // Save to global users array
+        let users = JSON.parse(localStorage.getItem('users') || '[]');
+
+        // Prevent duplicate signup
+        const exists = users.some(u => u.email === user.email);
+        if (!exists) {
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
         }
 
-        // Email
-        if (!isValidEmail(email.value.trim())) {
-            showError(email, "Enter a valid email address");
-            isValid = false;
+        // REDIRECT based on role
+        if (role === "admin") {
+            window.location.href = "admin-dashboard.html";
         } else {
-            clearError(email);
-        }
-
-        // Password
-        if (password.value.length < 6) {
-            showError(password, "Password must be at least 6 characters");
-            isValid = false;
-        } else {
-            clearError(password);
-        }
-
-        // Confirm Password
-        if (password.value !== confirmPassword.value) {
-            showError(confirmPassword, "Passwords do not match");
-            isValid = false;
-        } else {
-            clearError(confirmPassword);
-        }
-
-        // ✅ Redirect after successful signup
-        if (isValid) {
-            // Use SESSION for page protection
-            sessionStorage.setItem("loggedIn", "true");
-            sessionStorage.setItem("userEmail", email.value.trim());
-
-            // Optional: store in localStorage for persistence across reloads
-            localStorage.setItem("loggedIn", "true");
-            localStorage.setItem("userEmail", email.value.trim());
-
             window.location.href = "dashboard.html";
         }
     });
 }
 
+
 // ==============================
-// Login Validation
+// LOGIN VALIDATION
 // ==============================
 const loginForm = document.querySelector(".login-form");
 
@@ -101,86 +109,98 @@ if (loginForm) {
 
         let isValid = true;
 
-        // Email
-        if (!isValidEmail(email.value.trim())) {
-            showError(email, "Invalid email address");
-            isValid = false;
+        if (!isValidEmail(email.value.trim())) { showError(email, "Invalid email address"); isValid = false; } else clearError(email);
+        if (password.value.trim() === "") { showError(password, "Password cannot be empty"); isValid = false; } else clearError(password);
+
+        if (!isValid) return;
+
+        // AUTH STATE
+        sessionStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userEmail", email.value.trim());
+
+        // Determine role
+        let role = email.value.toLowerCase().includes("admin") ? "admin" : "student";
+        localStorage.setItem("userRole", role);
+
+        // SAVE CURRENT USER for checkout
+        let currentUser = {
+            email: email.value.trim(),
+            features: [],
+            role: role
+        };
+
+        if (role === "admin") {
+            currentUser.name = "Admin"; // Admin name
         } else {
-            clearError(email);
+            // For students, try to find them in users array saved during signup
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const foundUser = users.find(u => u.email === email.value.trim());
+            currentUser.name = foundUser ? foundUser.name : ""; // use name if exists, else blank
+            currentUser.features = foundUser ? foundUser.features || [] : [];
         }
 
-        // Password
-        if (password.value.trim() === "") {
-            showError(password, "Password cannot be empty");
-            isValid = false;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+        // REDIRECT BASED ON ROLE
+        if (role === "admin") {
+            window.location.href = "admin-dashboard.html";
         } else {
-            clearError(password);
-        }
-
-        // ✅ Redirect after successful login
-        if (isValid) {
-            sessionStorage.setItem("loggedIn", "true");
-            sessionStorage.setItem("userEmail", email.value.trim());
-
-            localStorage.setItem("loggedIn", "true");
-            localStorage.setItem("userEmail", email.value.trim());
-
             window.location.href = "dashboard.html";
         }
     });
 }
 
+
 // ==============================
-// AUTH LOGIC
+// PAGE PROTECTION
 // ==============================
-
-// Unified login check: check session first, fallback to localStorage
-const isLoggedIn =
-    sessionStorage.getItem("loggedIn") === "true" ||
-    localStorage.getItem("loggedIn") === "true";
-
-// Show/hide protected links and logout
-document.querySelectorAll(".protected").forEach(link => {
-    if (!isLoggedIn) {
-        link.style.display = "none";
-    }
-});
-
-const logoutBtn = document.getElementById("logoutBtn") || document.querySelector(".logout");
-if (logoutBtn) {
-    if (isLoggedIn) {
-        logoutBtn.style.display = "inline-block";
-    } else {
-        logoutBtn.style.display = "none";
-    }
-
-    logoutBtn.addEventListener("click", () => {
-        sessionStorage.removeItem("loggedIn");
-        sessionStorage.removeItem("userEmail");
-        localStorage.removeItem("loggedIn");
-        localStorage.removeItem("userEmail");
-
-        window.location.href = "login.html";
-    });
-}
-
-// Protect pages: redirect if not logged in
 document.addEventListener("DOMContentLoaded", () => {
-    if (document.body.classList.contains("protected-page") && !isLoggedIn) {
+    const loggedIn = isUserLoggedIn();
+    const role = localStorage.getItem("userRole");
+
+    // Protect pages
+    if (document.body.classList.contains("protected-page") && !loggedIn) {
         window.location.href = "login.html";
+        return;
     }
-});
 
-// Handle all protected links (Dashboard, Chatbot button, etc.)
-document.querySelectorAll(".protected").forEach(link => {
-    link.addEventListener("click", function(event) {
-        const isLoggedInNow =
-            sessionStorage.getItem("loggedIn") === "true" ||
-            localStorage.getItem("loggedIn") === "true";
+    // Role-based protection
+    if (document.body.classList.contains("student-page") && role !== "student") {
+        window.location.href = "admin-dashboard.html";
+        return;
+    }
 
-        if (!isLoggedInNow) {
-            event.preventDefault();
-            window.location.href = "login.html";
-        }
+    if (document.body.classList.contains("admin-page") && role !== "admin") {
+        window.location.href = "dashboard.html";
+        return;
+    }
+
+    // Protected links
+    document.querySelectorAll(".protected").forEach(link => {
+        link.style.display = loggedIn ? "inline-block" : "none";
+
+        link.addEventListener("click", function (e) {
+            if (!isUserLoggedIn()) {
+                e.preventDefault();
+                window.location.href = "login.html";
+            }
+        });
     });
+
+    // Logout
+    const logoutBtn = document.getElementById("logoutBtn") || document.querySelector(".logout");
+    if (logoutBtn) {
+        logoutBtn.style.display = loggedIn ? "inline-block" : "none";
+
+        logoutBtn.addEventListener("click", () => {
+            sessionStorage.clear();
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userRole");
+            localStorage.removeItem("currentUser"); // also remove currentUser
+
+            window.location.href = "login.html";
+        });
+    }
 });

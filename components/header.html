@@ -1,4 +1,5 @@
 <!-- components/header.html -->
+
 <nav class="navbar">
     <a href="index.html" class="logo">
         <img src="assets/University_of_the_Punjab_logo.png" alt="PU Logo" class="nav-logo">
@@ -8,6 +9,15 @@
         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
         <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        <li><a href="signup.html" class="btn-login"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+
+        <!-- Dashboard buttons -->
+        <li class="student-dashboard"><a href="dashboard.html"><i class="fas fa-user"></i> Student Dashboard</a></li>
+        <li class="admin-dashboard"><a href="admin-dashboard.html"><i class="fas fa-crown"></i> Admin Dashboard</a></li>
+
+        <!-- Auth buttons -->
+        <li class="btn-login signin"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+        <li class="btn-login signup"><a href="signup.html" style="display:flex; align-items:center;">
+        <i class="fas fa-user-plus"></i> Sign Up</a></li>
+        <li class="btn-login btn-logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>

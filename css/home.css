@@ -1,6 +1,6 @@
 /* ------------------ Hero Section ------------------ */
 .hero {
-    min-height: 68vh; /* Make hero cover full viewport */
+    min-height: 70vh; /* Make hero cover full viewport */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Vertically center content */

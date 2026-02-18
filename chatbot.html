@@ -28,7 +28,10 @@
                 <i class="fas fa-home"></i> Home
             </a>
             <a href="dashboard.html">
-                <i class="fas fa-user"></i> Dashboard
+                <i class="fas fa-user"></i>Student Dashboard
+            </a>
+            <a href="premium.html">
+                <i class="fas fa-crown"></i>Premium
             </a>
             <a href="chatbot.html" class="active">
                 <i class="fas fa-comments"></i> Chatbot
@@ -57,7 +60,31 @@
             <div class="card chatbot-card">
                 <h2>Ask PUGC SmartBot</h2>
                 <p>Type your questions about courses, admissions, events, and more.</p>
+
+                <!-- Feature Buttons -->
+                <!-- Feature Buttons -->
+<div class="chatbot-buttons">
+    <button id="faq-btn">
+        <i class="fas fa-question-circle"></i> FAQ 
+        <span class="lock-icon" data-premium="true">🔒</span>
+    </button>
+    <button id="events-btn">
+        <i class="fas fa-calendar-alt"></i> Events
+        <span class="lock-icon" data-premium="true">🔒</span>
+    </button>
+    <button id="history-btn">
+        <i class="fas fa-history"></i> History
+        <span class="lock-icon" data-premium="true">🔒</span>
+    </button>
+    <button id="feedback-btn">
+        <i class="fas fa-star"></i> Feedback 
+        <span class="lock-icon" data-premium="true">🔒</span>
+    </button>
+</div>
+
+
                 <div id="chat-window" class="chat-window"></div>
+
                 <div class="chat-input">
                     <input type="text" id="user-input" placeholder="Type your message..." />
                     <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
@@ -68,6 +95,27 @@
 
     </main>
 
+</div>
+
+<!-- Feedback Modal -->
+<div id="feedback-modal" class="feedback-modal" style="display:none;">
+    <div class="feedback-content">
+        <span id="close-feedback" class="close">&times;</span>
+        <h3>Submit Feedback</h3>
+        <label>Rating:</label>
+<div class="star-rating" id="star-rating">
+  <span data-value="1">★</span>
+  <span data-value="2">★</span>
+  <span data-value="3">★</span>
+  <span data-value="4">★</span>
+  <span data-value="5">★</span>
+</div>
+<input type="hidden" id="feedback-rating">
+
+        <label>Message:</label>
+        <textarea id="feedback-message" rows="4" placeholder="Your feedback..."></textarea>
+        <button id="submit-feedback">Submit</button>
+    </div>
 </div>
 
 <script src="js/auth-validation.js"></script>

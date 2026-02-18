@@ -36,7 +36,7 @@
 /* Map Box */
 .map-box {
     width: 100%;
-    height: 450px; /* increased height */
+    height: 480px; /* increased height */
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -48,26 +48,26 @@
     padding: 3px 3px;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    height: 450px; /* match map height */
+    height: 480px; /* match map height */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .form-heading{
-    margin-left: 12px;
+    margin-left: 35px;
 }
 
 .contact-form input,
 .contact-form textarea {
-    width: 90%;
+    width: 80%;
     display: block;
     padding: 12px 15px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    margin-left: 12px;
+    margin-left: 35px;
 }
 
 .contact-form textarea {
@@ -87,7 +87,7 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-left: 12px;
+    margin-left: 35px;
 }
 
 .contact-form .cta-btn:hover {

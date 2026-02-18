@@ -82,8 +82,10 @@ body {
     transform: translateY(-3px);
 }
 
-/* Sign In Button */
-.btn-login {
+/* Sign In & Logout Buttons */
+.btn-login.signin,
+.btn-login.signup,
+.btn-login.btn-logout {
     background: var(--accent);
     color: var(--white);
     padding: 10px 24px;
@@ -91,13 +93,23 @@ body {
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     transition: var(--transition);
+    text-decoration: none;
 }
 
-.btn-login:hover {
+.btn-login.signin:hover,
+.btn-login.signup:hover,
+.btn-login.btn-logout:hover {
     background: #e6af1a;
     transform: translateY(-2px);
+}
+
+/* Hide elements initially */
+.btn-logout,
+.student-dashboard,
+.admin-dashboard {
+    display: none;
 }
 
 /* Responsive Navbar for Tablet/Mobile */

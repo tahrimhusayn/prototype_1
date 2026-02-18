@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | PUGC SmartBot</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Checkout Styles -->
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+  <div class="checkout-wrapper">
+
+    <!-- Back Button -->
+    <button id="back-button" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+
+    <!-- Checkout Card -->
+    <div class="checkout-card">
+      <h2><i class="fas fa-credit-card"></i> Complete Your Subscription</h2>
+      <p class="checkout-intro">
+        Review your selected features and confirm payment.
+      </p>
+
+      <!-- Student Info -->
+      <form class="checkout-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required readonly>
+        </div>
+      </form>
+
+      <!-- Payment Method -->
+<div class="form-group payment-group">
+    <label class="payment-label">Payment Method</label>
+    <div class="payment-options">
+        <label>
+            <input type="radio" name="payment-method" value="DebitCard" checked>
+            DebitCard
+        </label>
+        <label>
+            <input type="radio" name="payment-method" value="Easypaisa">
+            Easypaisa
+        </label>
+        <label>
+            <input type="radio" name="payment-method" value="JazzCash">
+            JazzCash
+        </label>
+    </div>
+</div>
+
+
+      <!-- Selected Features -->
+      <div class="features-list" id="selected-features">
+        <!-- JS dynamically populates features -->
+      </div>
+
+      <!-- Total -->
+      <div class="total-price">
+        Total: $<span id="total-amount">0</span>
+      </div>
+
+      <!-- Confirm Payment -->
+      <button id="confirm-payment" class="checkout-btn">
+        <i class="fas fa-check-circle"></i> Confirm Payment
+      </button>
+    </div>
+  </div>
+
+  <script src="js/checkout.js"></script>
+</body>
+</html>
