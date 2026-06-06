@@ -4,7 +4,7 @@
 
 **PUGC SmartBot** is an **AI-powered academic virtual assistant** built for students, staff, and visitors of **Punjab University Gujranwala Campus (PUGC)**. It provides instant answers to queries about courses, admissions, events, and facilities — with a premium subscription model for advanced features.
 
-This prototype includes a full-stack web application with a public-facing landing site, role-based dashboards (Student & Admin), an AI chatbot interface, and a flexible premium subscription system.
+This prototype is a **front-end only web application** built with pure HTML, CSS, and JavaScript — featuring a public-facing landing site, role-based dashboards (Student & Admin), an AI chatbot interface, and a flexible premium subscription system.
 
 ---
 
@@ -61,11 +61,11 @@ This prototype includes a full-stack web application with a public-facing landin
 
 ## 🛠️ Technologies Used
 
-- HTML / CSS / JavaScript (Frontend)
-- Node.js / Express (Backend)
-- Firebase / Local Storage (Authentication & Data)
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
 - Google Maps Embed API (Contact Page)
-- AI/Chatbot Integration (FAQ Engine)
+- localStorage (Client-side data persistence)
 
 ---
 
@@ -92,6 +92,7 @@ All UI screenshots are available in the `/Screenshots` folder of this repository
 ## 🔮 Future Improvements
 
 - Real AI model integration (NLP / LLM backend)
+- Node.js / Express backend for server-side logic
 - Firebase Authentication with verified email support
 - Firestore database for FAQs, events, and user data
 - Stripe / JazzCash payment gateway integration
